@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		322E312D19A8E51500B8CDF8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322E312C19A8E51500B8CDF8 /* Cocoa.framework */; };
+		322E313719A8E51500B8CDF8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 322E313519A8E51500B8CDF8 /* InfoPlist.strings */; };
+		322E313919A8E51500B8CDF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322E313819A8E51500B8CDF8 /* main.m */; };
+		322E313D19A8E51500B8CDF8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 322E313B19A8E51500B8CDF8 /* Credits.rtf */; };
+		322E314019A8E51500B8CDF8 /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322E313F19A8E51500B8CDF8 /* JCAppDelegate.m */; };
+		322E314319A8E51500B8CDF8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 322E314119A8E51500B8CDF8 /* MainMenu.xib */; };
+		322E314519A8E51500B8CDF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322E314419A8E51500B8CDF8 /* Images.xcassets */; };
+		322E314C19A8E51500B8CDF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322E314B19A8E51500B8CDF8 /* XCTest.framework */; };
+		322E314D19A8E51500B8CDF8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322E312C19A8E51500B8CDF8 /* Cocoa.framework */; };
+		322E315519A8E51500B8CDF8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 322E315319A8E51500B8CDF8 /* InfoPlist.strings */; };
+		322E315719A8E51500B8CDF8 /* NSNotificationCenterTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322E315619A8E51500B8CDF8 /* NSNotificationCenterTestTests.m */; };
+		322E316219A8E53400B8CDF8 /* JCMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 322E316119A8E53400B8CDF8 /* JCMainWindow.m */; };
+		32A4A59019A98B6A00C8A55A /* JCClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4A58F19A98B6A00C8A55A /* JCClassA.m */; };
+		32A4A59319A98B8600C8A55A /* JCClassB.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4A59219A98B8600C8A55A /* JCClassB.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		322E314E19A8E51500B8CDF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 322E312119A8E51500B8CDF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 322E312819A8E51500B8CDF8;
+			remoteInfo = NSNotificationCenterTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		322E312919A8E51500B8CDF8 /* NSNotificationCenterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNotificationCenterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		322E312C19A8E51500B8CDF8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		322E312F19A8E51500B8CDF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		322E313019A8E51500B8CDF8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		322E313119A8E51500B8CDF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		322E313419A8E51500B8CDF8 /* NSNotificationCenterTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSNotificationCenterTest-Info.plist"; sourceTree = "<group>"; };
+		322E313619A8E51500B8CDF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		322E313819A8E51500B8CDF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		322E313A19A8E51500B8CDF8 /* NSNotificationCenterTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenterTest-Prefix.pch"; sourceTree = "<group>"; };
+		322E313C19A8E51500B8CDF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		322E313E19A8E51500B8CDF8 /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		322E313F19A8E51500B8CDF8 /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+		322E314219A8E51500B8CDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		322E314419A8E51500B8CDF8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		322E314A19A8E51500B8CDF8 /* NSNotificationCenterTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSNotificationCenterTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		322E314B19A8E51500B8CDF8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		322E315219A8E51500B8CDF8 /* NSNotificationCenterTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSNotificationCenterTestTests-Info.plist"; sourceTree = "<group>"; };
+		322E315419A8E51500B8CDF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		322E315619A8E51500B8CDF8 /* NSNotificationCenterTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterTestTests.m; sourceTree = "<group>"; };
+		322E316019A8E53400B8CDF8 /* JCMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMainWindow.h; sourceTree = "<group>"; };
+		322E316119A8E53400B8CDF8 /* JCMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMainWindow.m; sourceTree = "<group>"; };
+		32A4A58E19A98B6A00C8A55A /* JCClassA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClassA.h; sourceTree = "<group>"; };
+		32A4A58F19A98B6A00C8A55A /* JCClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClassA.m; sourceTree = "<group>"; };
+		32A4A59119A98B8600C8A55A /* JCClassB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCClassB.h; sourceTree = "<group>"; };
+		32A4A59219A98B8600C8A55A /* JCClassB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCClassB.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		322E312619A8E51500B8CDF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E312D19A8E51500B8CDF8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		322E314719A8E51500B8CDF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E314D19A8E51500B8CDF8 /* Cocoa.framework in Frameworks */,
+				322E314C19A8E51500B8CDF8 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		322E312019A8E51500B8CDF8 = {
+			isa = PBXGroup;
+			children = (
+				322E313219A8E51500B8CDF8 /* NSNotificationCenterTest */,
+				322E315019A8E51500B8CDF8 /* NSNotificationCenterTestTests */,
+				322E312B19A8E51500B8CDF8 /* Frameworks */,
+				322E312A19A8E51500B8CDF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		322E312A19A8E51500B8CDF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				322E312919A8E51500B8CDF8 /* NSNotificationCenterTest.app */,
+				322E314A19A8E51500B8CDF8 /* NSNotificationCenterTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		322E312B19A8E51500B8CDF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				322E312C19A8E51500B8CDF8 /* Cocoa.framework */,
+				322E314B19A8E51500B8CDF8 /* XCTest.framework */,
+				322E312E19A8E51500B8CDF8 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		322E312E19A8E51500B8CDF8 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				322E312F19A8E51500B8CDF8 /* AppKit.framework */,
+				322E313019A8E51500B8CDF8 /* CoreData.framework */,
+				322E313119A8E51500B8CDF8 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		322E313219A8E51500B8CDF8 /* NSNotificationCenterTest */ = {
+			isa = PBXGroup;
+			children = (
+				322E313E19A8E51500B8CDF8 /* JCAppDelegate.h */,
+				322E313F19A8E51500B8CDF8 /* JCAppDelegate.m */,
+				322E314119A8E51500B8CDF8 /* MainMenu.xib */,
+				322E314419A8E51500B8CDF8 /* Images.xcassets */,
+				322E313319A8E51500B8CDF8 /* Supporting Files */,
+				322E316019A8E53400B8CDF8 /* JCMainWindow.h */,
+				322E316119A8E53400B8CDF8 /* JCMainWindow.m */,
+				32A4A58E19A98B6A00C8A55A /* JCClassA.h */,
+				32A4A58F19A98B6A00C8A55A /* JCClassA.m */,
+				32A4A59119A98B8600C8A55A /* JCClassB.h */,
+				32A4A59219A98B8600C8A55A /* JCClassB.m */,
+			);
+			path = NSNotificationCenterTest;
+			sourceTree = "<group>";
+		};
+		322E313319A8E51500B8CDF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				322E313419A8E51500B8CDF8 /* NSNotificationCenterTest-Info.plist */,
+				322E313519A8E51500B8CDF8 /* InfoPlist.strings */,
+				322E313819A8E51500B8CDF8 /* main.m */,
+				322E313A19A8E51500B8CDF8 /* NSNotificationCenterTest-Prefix.pch */,
+				322E313B19A8E51500B8CDF8 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		322E315019A8E51500B8CDF8 /* NSNotificationCenterTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				322E315619A8E51500B8CDF8 /* NSNotificationCenterTestTests.m */,
+				322E315119A8E51500B8CDF8 /* Supporting Files */,
+			);
+			path = NSNotificationCenterTestTests;
+			sourceTree = "<group>";
+		};
+		322E315119A8E51500B8CDF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				322E315219A8E51500B8CDF8 /* NSNotificationCenterTestTests-Info.plist */,
+				322E315319A8E51500B8CDF8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		322E312819A8E51500B8CDF8 /* NSNotificationCenterTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 322E315A19A8E51500B8CDF8 /* Build configuration list for PBXNativeTarget "NSNotificationCenterTest" */;
+			buildPhases = (
+				322E312519A8E51500B8CDF8 /* Sources */,
+				322E312619A8E51500B8CDF8 /* Frameworks */,
+				322E312719A8E51500B8CDF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSNotificationCenterTest;
+			productName = NSNotificationCenterTest;
+			productReference = 322E312919A8E51500B8CDF8 /* NSNotificationCenterTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		322E314919A8E51500B8CDF8 /* NSNotificationCenterTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 322E315D19A8E51500B8CDF8 /* Build configuration list for PBXNativeTarget "NSNotificationCenterTestTests" */;
+			buildPhases = (
+				322E314619A8E51500B8CDF8 /* Sources */,
+				322E314719A8E51500B8CDF8 /* Frameworks */,
+				322E314819A8E51500B8CDF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				322E314F19A8E51500B8CDF8 /* PBXTargetDependency */,
+			);
+			name = NSNotificationCenterTestTests;
+			productName = NSNotificationCenterTestTests;
+			productReference = 322E314A19A8E51500B8CDF8 /* NSNotificationCenterTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		322E312119A8E51500B8CDF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = JimCheng;
+				TargetAttributes = {
+					322E314919A8E51500B8CDF8 = {
+						TestTargetID = 322E312819A8E51500B8CDF8;
+					};
+				};
+			};
+			buildConfigurationList = 322E312419A8E51500B8CDF8 /* Build configuration list for PBXProject "NSNotificationCenterTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 322E312019A8E51500B8CDF8;
+			productRefGroup = 322E312A19A8E51500B8CDF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				322E312819A8E51500B8CDF8 /* NSNotificationCenterTest */,
+				322E314919A8E51500B8CDF8 /* NSNotificationCenterTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		322E312719A8E51500B8CDF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E313719A8E51500B8CDF8 /* InfoPlist.strings in Resources */,
+				322E314519A8E51500B8CDF8 /* Images.xcassets in Resources */,
+				322E313D19A8E51500B8CDF8 /* Credits.rtf in Resources */,
+				322E314319A8E51500B8CDF8 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		322E314819A8E51500B8CDF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E315519A8E51500B8CDF8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		322E312519A8E51500B8CDF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E313919A8E51500B8CDF8 /* main.m in Sources */,
+				32A4A59019A98B6A00C8A55A /* JCClassA.m in Sources */,
+				322E316219A8E53400B8CDF8 /* JCMainWindow.m in Sources */,
+				322E314019A8E51500B8CDF8 /* JCAppDelegate.m in Sources */,
+				32A4A59319A98B8600C8A55A /* JCClassB.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		322E314619A8E51500B8CDF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322E315719A8E51500B8CDF8 /* NSNotificationCenterTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		322E314F19A8E51500B8CDF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 322E312819A8E51500B8CDF8 /* NSNotificationCenterTest */;
+			targetProxy = 322E314E19A8E51500B8CDF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		322E313519A8E51500B8CDF8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				322E313619A8E51500B8CDF8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		322E313B19A8E51500B8CDF8 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				322E313C19A8E51500B8CDF8 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		322E314119A8E51500B8CDF8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				322E314219A8E51500B8CDF8 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		322E315319A8E51500B8CDF8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				322E315419A8E51500B8CDF8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		322E315819A8E51500B8CDF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		322E315919A8E51500B8CDF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		322E315B19A8E51500B8CDF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSNotificationCenterTest/NSNotificationCenterTest-Prefix.pch";
+				INFOPLIST_FILE = "NSNotificationCenterTest/NSNotificationCenterTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		322E315C19A8E51500B8CDF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSNotificationCenterTest/NSNotificationCenterTest-Prefix.pch";
+				INFOPLIST_FILE = "NSNotificationCenterTest/NSNotificationCenterTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		322E315E19A8E51500B8CDF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSNotificationCenterTest.app/Contents/MacOS/NSNotificationCenterTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSNotificationCenterTest/NSNotificationCenterTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NSNotificationCenterTestTests/NSNotificationCenterTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		322E315F19A8E51500B8CDF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSNotificationCenterTest.app/Contents/MacOS/NSNotificationCenterTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSNotificationCenterTest/NSNotificationCenterTest-Prefix.pch";
+				INFOPLIST_FILE = "NSNotificationCenterTestTests/NSNotificationCenterTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		322E312419A8E51500B8CDF8 /* Build configuration list for PBXProject "NSNotificationCenterTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				322E315819A8E51500B8CDF8 /* Debug */,
+				322E315919A8E51500B8CDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		322E315A19A8E51500B8CDF8 /* Build configuration list for PBXNativeTarget "NSNotificationCenterTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				322E315B19A8E51500B8CDF8 /* Debug */,
+				322E315C19A8E51500B8CDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		322E315D19A8E51500B8CDF8 /* Build configuration list for PBXNativeTarget "NSNotificationCenterTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				322E315E19A8E51500B8CDF8 /* Debug */,
+				322E315F19A8E51500B8CDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 322E312119A8E51500B8CDF8 /* Project object */;
+}
