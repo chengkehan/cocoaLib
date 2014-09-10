@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>725B8618-EFBA-4281-9E14-A7643E136D0C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>XMLTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C6ED5540-F415-4402-8E16-9B8DB12A9BDC</key>
+		<string>https://github.com/chengkehan/cocoaLib.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>XMLTest/XMLTest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C6ED5540-F415-4402-8E16-9B8DB12A9BDC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chengkehan/cocoaLib.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C6ED5540-F415-4402-8E16-9B8DB12A9BDC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C6ED5540-F415-4402-8E16-9B8DB12A9BDC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cocoaLib</string>
+		</dict>
+	</array>
+</dict>
+</plist>

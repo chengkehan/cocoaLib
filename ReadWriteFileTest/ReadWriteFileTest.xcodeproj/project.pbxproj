@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32A9ED0519AA2F180023B7FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A9ED0419AA2F180023B7FA /* Cocoa.framework */; };
+		32A9ED0F19AA2F180023B7FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32A9ED0D19AA2F180023B7FA /* InfoPlist.strings */; };
+		32A9ED1119AA2F180023B7FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9ED1019AA2F180023B7FA /* main.m */; };
+		32A9ED1519AA2F180023B7FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 32A9ED1319AA2F180023B7FA /* Credits.rtf */; };
+		32A9ED1819AA2F180023B7FA /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9ED1719AA2F180023B7FA /* JCAppDelegate.m */; };
+		32A9ED1B19AA2F180023B7FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A9ED1919AA2F180023B7FA /* MainMenu.xib */; };
+		32A9ED1D19AA2F180023B7FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A9ED1C19AA2F180023B7FA /* Images.xcassets */; };
+		32A9ED2419AA2F180023B7FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A9ED2319AA2F180023B7FA /* XCTest.framework */; };
+		32A9ED2519AA2F180023B7FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A9ED0419AA2F180023B7FA /* Cocoa.framework */; };
+		32A9ED2D19AA2F180023B7FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32A9ED2B19AA2F180023B7FA /* InfoPlist.strings */; };
+		32A9ED2F19AA2F180023B7FA /* ReadWriteFileTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A9ED2E19AA2F180023B7FA /* ReadWriteFileTestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32A9ED2619AA2F180023B7FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A9ECF919AA2F180023B7FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32A9ED0019AA2F180023B7FA;
+			remoteInfo = ReadWriteFileTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32A9ED0119AA2F180023B7FA /* ReadWriteFileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadWriteFileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32A9ED0419AA2F180023B7FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		32A9ED0719AA2F180023B7FA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		32A9ED0819AA2F180023B7FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32A9ED0919AA2F180023B7FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		32A9ED0C19AA2F180023B7FA /* ReadWriteFileTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReadWriteFileTest-Info.plist"; sourceTree = "<group>"; };
+		32A9ED0E19AA2F180023B7FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32A9ED1019AA2F180023B7FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32A9ED1219AA2F180023B7FA /* ReadWriteFileTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReadWriteFileTest-Prefix.pch"; sourceTree = "<group>"; };
+		32A9ED1419AA2F180023B7FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		32A9ED1619AA2F180023B7FA /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
+		32A9ED1719AA2F180023B7FA /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
+		32A9ED1A19AA2F180023B7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		32A9ED1C19AA2F180023B7FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		32A9ED2219AA2F180023B7FA /* ReadWriteFileTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadWriteFileTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32A9ED2319AA2F180023B7FA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		32A9ED2A19AA2F180023B7FA /* ReadWriteFileTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReadWriteFileTestTests-Info.plist"; sourceTree = "<group>"; };
+		32A9ED2C19AA2F180023B7FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32A9ED2E19AA2F180023B7FA /* ReadWriteFileTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadWriteFileTestTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32A9ECFE19AA2F180023B7FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED0519AA2F180023B7FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A9ED1F19AA2F180023B7FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED2519AA2F180023B7FA /* Cocoa.framework in Frameworks */,
+				32A9ED2419AA2F180023B7FA /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32A9ECF819AA2F180023B7FA = {
+			isa = PBXGroup;
+			children = (
+				32A9ED0A19AA2F180023B7FA /* ReadWriteFileTest */,
+				32A9ED2819AA2F180023B7FA /* ReadWriteFileTestTests */,
+				32A9ED0319AA2F180023B7FA /* Frameworks */,
+				32A9ED0219AA2F180023B7FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32A9ED0219AA2F180023B7FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED0119AA2F180023B7FA /* ReadWriteFileTest.app */,
+				32A9ED2219AA2F180023B7FA /* ReadWriteFileTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32A9ED0319AA2F180023B7FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED0419AA2F180023B7FA /* Cocoa.framework */,
+				32A9ED2319AA2F180023B7FA /* XCTest.framework */,
+				32A9ED0619AA2F180023B7FA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32A9ED0619AA2F180023B7FA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED0719AA2F180023B7FA /* AppKit.framework */,
+				32A9ED0819AA2F180023B7FA /* CoreData.framework */,
+				32A9ED0919AA2F180023B7FA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32A9ED0A19AA2F180023B7FA /* ReadWriteFileTest */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED1619AA2F180023B7FA /* JCAppDelegate.h */,
+				32A9ED1719AA2F180023B7FA /* JCAppDelegate.m */,
+				32A9ED1919AA2F180023B7FA /* MainMenu.xib */,
+				32A9ED1C19AA2F180023B7FA /* Images.xcassets */,
+				32A9ED0B19AA2F180023B7FA /* Supporting Files */,
+			);
+			path = ReadWriteFileTest;
+			sourceTree = "<group>";
+		};
+		32A9ED0B19AA2F180023B7FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED0C19AA2F180023B7FA /* ReadWriteFileTest-Info.plist */,
+				32A9ED0D19AA2F180023B7FA /* InfoPlist.strings */,
+				32A9ED1019AA2F180023B7FA /* main.m */,
+				32A9ED1219AA2F180023B7FA /* ReadWriteFileTest-Prefix.pch */,
+				32A9ED1319AA2F180023B7FA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32A9ED2819AA2F180023B7FA /* ReadWriteFileTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED2E19AA2F180023B7FA /* ReadWriteFileTestTests.m */,
+				32A9ED2919AA2F180023B7FA /* Supporting Files */,
+			);
+			path = ReadWriteFileTestTests;
+			sourceTree = "<group>";
+		};
+		32A9ED2919AA2F180023B7FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32A9ED2A19AA2F180023B7FA /* ReadWriteFileTestTests-Info.plist */,
+				32A9ED2B19AA2F180023B7FA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32A9ED0019AA2F180023B7FA /* ReadWriteFileTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32A9ED3219AA2F180023B7FA /* Build configuration list for PBXNativeTarget "ReadWriteFileTest" */;
+			buildPhases = (
+				32A9ECFD19AA2F180023B7FA /* Sources */,
+				32A9ECFE19AA2F180023B7FA /* Frameworks */,
+				32A9ECFF19AA2F180023B7FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReadWriteFileTest;
+			productName = ReadWriteFileTest;
+			productReference = 32A9ED0119AA2F180023B7FA /* ReadWriteFileTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32A9ED2119AA2F180023B7FA /* ReadWriteFileTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32A9ED3519AA2F180023B7FA /* Build configuration list for PBXNativeTarget "ReadWriteFileTestTests" */;
+			buildPhases = (
+				32A9ED1E19AA2F180023B7FA /* Sources */,
+				32A9ED1F19AA2F180023B7FA /* Frameworks */,
+				32A9ED2019AA2F180023B7FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32A9ED2719AA2F180023B7FA /* PBXTargetDependency */,
+			);
+			name = ReadWriteFileTestTests;
+			productName = ReadWriteFileTestTests;
+			productReference = 32A9ED2219AA2F180023B7FA /* ReadWriteFileTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32A9ECF919AA2F180023B7FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = JimCheng;
+				TargetAttributes = {
+					32A9ED2119AA2F180023B7FA = {
+						TestTargetID = 32A9ED0019AA2F180023B7FA;
+					};
+				};
+			};
+			buildConfigurationList = 32A9ECFC19AA2F180023B7FA /* Build configuration list for PBXProject "ReadWriteFileTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32A9ECF819AA2F180023B7FA;
+			productRefGroup = 32A9ED0219AA2F180023B7FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32A9ED0019AA2F180023B7FA /* ReadWriteFileTest */,
+				32A9ED2119AA2F180023B7FA /* ReadWriteFileTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32A9ECFF19AA2F180023B7FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED0F19AA2F180023B7FA /* InfoPlist.strings in Resources */,
+				32A9ED1D19AA2F180023B7FA /* Images.xcassets in Resources */,
+				32A9ED1519AA2F180023B7FA /* Credits.rtf in Resources */,
+				32A9ED1B19AA2F180023B7FA /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A9ED2019AA2F180023B7FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED2D19AA2F180023B7FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32A9ECFD19AA2F180023B7FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED1119AA2F180023B7FA /* main.m in Sources */,
+				32A9ED1819AA2F180023B7FA /* JCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32A9ED1E19AA2F180023B7FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32A9ED2F19AA2F180023B7FA /* ReadWriteFileTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32A9ED2719AA2F180023B7FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32A9ED0019AA2F180023B7FA /* ReadWriteFileTest */;
+			targetProxy = 32A9ED2619AA2F180023B7FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32A9ED0D19AA2F180023B7FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32A9ED0E19AA2F180023B7FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		32A9ED1319AA2F180023B7FA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32A9ED1419AA2F180023B7FA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		32A9ED1919AA2F180023B7FA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32A9ED1A19AA2F180023B7FA /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		32A9ED2B19AA2F180023B7FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32A9ED2C19AA2F180023B7FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32A9ED3019AA2F180023B7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		32A9ED3119AA2F180023B7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		32A9ED3319AA2F180023B7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReadWriteFileTest/ReadWriteFileTest-Prefix.pch";
+				INFOPLIST_FILE = "ReadWriteFileTest/ReadWriteFileTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		32A9ED3419AA2F180023B7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReadWriteFileTest/ReadWriteFileTest-Prefix.pch";
+				INFOPLIST_FILE = "ReadWriteFileTest/ReadWriteFileTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		32A9ED3619AA2F180023B7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReadWriteFileTest.app/Contents/MacOS/ReadWriteFileTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReadWriteFileTest/ReadWriteFileTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ReadWriteFileTestTests/ReadWriteFileTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		32A9ED3719AA2F180023B7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ReadWriteFileTest.app/Contents/MacOS/ReadWriteFileTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ReadWriteFileTest/ReadWriteFileTest-Prefix.pch";
+				INFOPLIST_FILE = "ReadWriteFileTestTests/ReadWriteFileTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32A9ECFC19AA2F180023B7FA /* Build configuration list for PBXProject "ReadWriteFileTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32A9ED3019AA2F180023B7FA /* Debug */,
+				32A9ED3119AA2F180023B7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32A9ED3219AA2F180023B7FA /* Build configuration list for PBXNativeTarget "ReadWriteFileTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32A9ED3319AA2F180023B7FA /* Debug */,
+				32A9ED3419AA2F180023B7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32A9ED3519AA2F180023B7FA /* Build configuration list for PBXNativeTarget "ReadWriteFileTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32A9ED3619AA2F180023B7FA /* Debug */,
+				32A9ED3719AA2F180023B7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32A9ECF919AA2F180023B7FA /* Project object */;
+}
