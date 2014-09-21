@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>82EFC38A-543C-4705-8B4A-6AFD5DF780D8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TestCocoaApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>82A1587E-8FCE-4573-834E-947C142C9089</key>
+		<string>svn://localhost/repository</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TestCocoaApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>82A1587E-8FCE-4573-834E-947C142C9089</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>82A1587E-8FCE-4573-834E-947C142C9089</key>
+		<string>svn://localhost/repository</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://localhost/repository/TestCocoaApp/TestCocoaApp.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>82A1587E-8FCE-4573-834E-947C142C9089</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>82A1587E-8FCE-4573-834E-947C142C9089</string>
+			<key>IDESourceControlWCCName</key>
+			<string>repository</string>
+		</dict>
+	</array>
+</dict>
+</plist>
