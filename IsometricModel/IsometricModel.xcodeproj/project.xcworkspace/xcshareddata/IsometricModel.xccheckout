@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>29ABD280-14F7-4A81-B15B-8CE7717A7B8C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IsometricModel</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>212D13AE-2772-44C4-9B9E-8C2F34A1784D</key>
+		<string>svn://localhost/repository/IsometricModel</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IsometricModel.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>212D13AE-2772-44C4-9B9E-8C2F34A1784D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>212D13AE-2772-44C4-9B9E-8C2F34A1784D</key>
+		<string>svn://localhost/repository</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://localhost/repository/IsometricModel/IsometricModel.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>212D13AE-2772-44C4-9B9E-8C2F34A1784D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>212D13AE-2772-44C4-9B9E-8C2F34A1784D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IsometricModel</string>
+		</dict>
+	</array>
+</dict>
+</plist>
