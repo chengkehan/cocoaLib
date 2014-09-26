@@ -115,6 +115,7 @@ using namespace jcgame;
     }
 }
 
+// Switch to show one floor or all
 - (IBAction)onChangeFloorVisible:(NSComboBox *)sender
 {
     id selectedItem = sender.objectValueOfSelectedItem;
@@ -124,6 +125,18 @@ using namespace jcgame;
         int floor = label.intValue;
         [self.canvas floorGridVisibleAt:floor];
     }
+}
+
+// Use pen to draw tile
+- (IBAction)usePenHandler:(id)sender
+{
+    self.canvas.strokeType = STROKE_TYPE_PEN;
+}
+
+// Use hand to drag canvas
+- (IBAction)useHandHandler:(id)sender
+{
+    self.canvas.strokeType = STROKE_TYPE_HAND;
 }
 
 // Implements NSTableViewDelegate

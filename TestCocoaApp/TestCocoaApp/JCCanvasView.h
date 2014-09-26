@@ -8,7 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+enum StrokeType
+{
+    STROKE_TYPE_HAND,
+    STROKE_TYPE_PEN
+};
+
 @interface JCCanvasView : NSView
+
+@property (nonatomic, readwrite) enum StrokeType strokeType;
 
 - (void)showGrid;
 - (void)hideGrid;

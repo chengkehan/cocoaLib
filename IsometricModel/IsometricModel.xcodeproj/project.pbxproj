@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3247B09419B4E1060072B2C4 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3247B09319B4E1060072B2C4 /* PrefixHeader.pch */; };
 		3247B09519B4E1060072B2C4 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3247B09319B4E1060072B2C4 /* PrefixHeader.pch */; };
+		3266470A19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3266470819CE97D80000347F /* IsometricAlgorithm.cpp */; };
+		3266470B19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3266470819CE97D80000347F /* IsometricAlgorithm.cpp */; };
+		3266470C19CE97D80000347F /* IsometricAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 3266470919CE97D80000347F /* IsometricAlgorithm.h */; };
+		3266470D19CE97D80000347F /* IsometricAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 3266470919CE97D80000347F /* IsometricAlgorithm.h */; };
 		32A08DD019B1743800EEA4B0 /* tinyxml2.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A08DCE19B1743800EEA4B0 /* tinyxml2.h */; };
 		32A08DDA19B1784500EEA4B0 /* IsometricTileConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32AAE25219AF804000AD58AB /* IsometricTileConfig.cpp */; };
 		32A08DDB19B1784500EEA4B0 /* IsometricModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32D98769199900C600522AE3 /* IsometricModel.cpp */; };
@@ -41,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		3247B09319B4E1060072B2C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3266470819CE97D80000347F /* IsometricAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IsometricAlgorithm.cpp; sourceTree = "<group>"; };
+		3266470919CE97D80000347F /* IsometricAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsometricAlgorithm.h; sourceTree = "<group>"; };
 		32A08DCD19B1743800EEA4B0 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
 		32A08DCE19B1743800EEA4B0 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		32A08DD519B1779600EEA4B0 /* libIsometricModel_OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIsometricModel_OSX.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +98,8 @@
 				32D987751999135E00522AE3 /* IsometricCellBevelDirection.h */,
 				32D987731999106800522AE3 /* IsometricCellType.h */,
 				32D98769199900C600522AE3 /* IsometricModel.cpp */,
+				3266470819CE97D80000347F /* IsometricAlgorithm.cpp */,
+				3266470919CE97D80000347F /* IsometricAlgorithm.h */,
 				32D9876A199900C600522AE3 /* IsometricModel.h */,
 				32D9876D1999048C00522AE3 /* IsometricCell.cpp */,
 				32D9876E1999048C00522AE3 /* IsometricCell.h */,
@@ -121,6 +129,7 @@
 				32A08DDD19B1784E00EEA4B0 /* tinyxml2.h in Headers */,
 				32A08DDE19B1784E00EEA4B0 /* IsometricTileConfig.h in Headers */,
 				32A08DDF19B1784E00EEA4B0 /* IsometricCellType.h in Headers */,
+				3266470D19CE97D80000347F /* IsometricAlgorithm.h in Headers */,
 				32A08DE019B1784E00EEA4B0 /* IsometricModel.h in Headers */,
 				32B20D4F19B7726600A97AC1 /* IsometricPairValueGroup.h in Headers */,
 				32A08DE119B1784E00EEA4B0 /* IsometricCell.h in Headers */,
@@ -137,6 +146,7 @@
 				32A08DD019B1743800EEA4B0 /* tinyxml2.h in Headers */,
 				32D987761999135E00522AE3 /* IsometricCellBevelDirection.h in Headers */,
 				32D987741999106800522AE3 /* IsometricCellType.h in Headers */,
+				3266470C19CE97D80000347F /* IsometricAlgorithm.h in Headers */,
 				32D9876C199900C600522AE3 /* IsometricModel.h in Headers */,
 				32B20D4E19B7726600A97AC1 /* IsometricPairValueGroup.h in Headers */,
 				32AAE25519AF804000AD58AB /* IsometricTileConfig.h in Headers */,
@@ -248,6 +258,7 @@
 				32A08DDB19B1784500EEA4B0 /* IsometricModel.cpp in Sources */,
 				32B20D4D19B7726600A97AC1 /* IsometricPairValueGroup.cpp in Sources */,
 				32B20D4619B76A5200A97AC1 /* IsometricPairValue.cpp in Sources */,
+				3266470B19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */,
 				32A08DDC19B1784500EEA4B0 /* IsometricCell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +272,7 @@
 				32D9876F1999048C00522AE3 /* IsometricCell.cpp in Sources */,
 				32B20D4C19B7726600A97AC1 /* IsometricPairValueGroup.cpp in Sources */,
 				32B20D4519B76A5200A97AC1 /* IsometricPairValue.cpp in Sources */,
+				3266470A19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */,
 				32AAE25419AF804000AD58AB /* IsometricTileConfig.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

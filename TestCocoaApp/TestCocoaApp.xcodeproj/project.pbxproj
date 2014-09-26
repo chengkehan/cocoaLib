@@ -69,6 +69,7 @@
 		3227C69519A09BEA0030E5CD /* JCMainView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCMainView.mm; sourceTree = "<group>"; };
 		3227C69719A0A3B50030E5CD /* JCCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCanvasView.h; sourceTree = "<group>"; };
 		3227C69819A0A3B50030E5CD /* JCCanvasView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JCCanvasView.mm; sourceTree = "<group>"; };
+		3266470E19CECD050000347F /* IsometricAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IsometricAlgorithm.h; path = ../IsometricModel/IsometricAlgorithm.h; sourceTree = "<group>"; };
 		32A034F8199F8FB70093C15D /* TestCocoaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCocoaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A034FB199F8FB80093C15D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		32A034FE199F8FB80093C15D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -304,6 +305,7 @@
 		32A08E0819B1941800EEA4B0 /* IsometricModel */ = {
 			isa = PBXGroup;
 			children = (
+				3266470E19CECD050000347F /* IsometricAlgorithm.h */,
 				32B20D5019B7797300A97AC1 /* IsometricPairValueGroup.h */,
 				32B20D4919B76F8F00A97AC1 /* IsometricPairValue.h */,
 				32A08E0219B1941000EEA4B0 /* IsometricCell.h */,

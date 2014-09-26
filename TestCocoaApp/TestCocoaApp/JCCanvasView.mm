@@ -12,15 +12,19 @@
 #import "JCDataManager.h"
 #import "JCNotificationName.h"
 #import "IsometricModel.h"
+#import "IsometricAlgorithm.h"
 
 using namespace jcgame;
 
 @interface JCCanvasView()
 
 @property (nonatomic, readwrite) BOOL gridVisible;
+@property (nonatomic, readwrite) NSPoint origin;
 @property (nonatomic, readwrite) CGFloat originCrossOffsetX;
 @property (nonatomic, readwrite) CGFloat originCrossOffsetY;
 @property (nonatomic, readwrite) int floorVisibleIndex;
+@property (nonatomic, readwrite) int focusRow;
+@property (nonatomic, readwrite) int focusCol;
 
 @end
 
@@ -57,6 +61,10 @@ using namespace jcgame;
         
         self.gridVisible = YES;
         self.floorVisibleIndex = -1;
+        
+        // Initialize trackingArea
+        NSTrackingArea* trackingArea = [[NSTrackingArea alloc] initWithRect:NSZeroRect options:NSTrackingMouseMoved | NSTrackingActiveInKeyWindow | NSTrackingInVisibleRect owner:self userInfo:nil];
+        [self addTrackingArea:trackingArea];
     }
     return self;
 }
@@ -100,6 +108,7 @@ using namespace jcgame;
     {
         origin.y = boundsSize.height - padding;
     }
+    self.origin = origin;
     // Draw
     CGContextMoveToPoint(context, origin.x, origin.y + 10);
     CGContextAddLineToPoint(context, origin.x, origin.y - 10);
@@ -126,8 +135,12 @@ using namespace jcgame;
                     {
                         NSPoint startPoint = NSMakePoint(0, row * cellSize);
                         NSPoint endPoint = NSMakePoint(cols * cellSize, row * cellSize);
-                        startPoint = [self isoWorldToScreen:startPoint.x y:floor * cellSize z:startPoint.y];
-                        endPoint = [self isoWorldToScreen:endPoint.x y:floor * cellSize z:endPoint.y];
+                        IsometricAlgorithm_Point isoStartPoint = IsometricAlgorithm::isoWorldToScreen(startPoint.x, -floor * cellSize, startPoint.y);
+                        IsometricAlgorithm_Point isoEndPoint = IsometricAlgorithm::isoWorldToScreen(endPoint.x, -floor * cellSize, endPoint.y);
+                        startPoint.x = isoStartPoint.x;
+                        startPoint.y = isoStartPoint.y;
+                        endPoint.x = isoEndPoint.x;
+                        endPoint.y = isoEndPoint.y;
                         CGContextMoveToPoint(context, origin.x + startPoint.x, origin.y - startPoint.y);
                         CGContextAddLineToPoint(context, origin.x + endPoint.x, origin.y - endPoint.y);
                     }
@@ -136,8 +149,12 @@ using namespace jcgame;
                     {
                         NSPoint startPoint = NSMakePoint(col * cellSize, 0);
                         NSPoint endPoint = NSMakePoint(col * cellSize, rows * cellSize);
-                        startPoint = [self isoWorldToScreen:startPoint.x y:floor * cellSize z:startPoint.y];
-                        endPoint = [self isoWorldToScreen:endPoint.x y:floor * cellSize z:endPoint.y];
+                        IsometricAlgorithm_Point isoStartPoint = IsometricAlgorithm::isoWorldToScreen(startPoint.x, -floor * cellSize, startPoint.y);
+                        IsometricAlgorithm_Point isoEndPoint = IsometricAlgorithm::isoWorldToScreen(endPoint.x, -floor * cellSize, endPoint.y);
+                        startPoint.x = isoStartPoint.x;
+                        startPoint.y = isoStartPoint.y;
+                        endPoint.x = isoEndPoint.x;
+                        endPoint.y = isoEndPoint.y;
                         CGContextMoveToPoint(context, origin.x + startPoint.x, origin.y - startPoint.y);
                         CGContextAddLineToPoint(context, origin.x + endPoint.x, origin.y - endPoint.y);
                     }
@@ -148,53 +165,81 @@ using namespace jcgame;
         }
     }
     
-    // test draw tiles
-//    if ([[JCResourcesManager sharedManager] getNumImageResources] == 1)
-//    {
-//        NSPoint origin = NSMakePoint(self.bounds.size.width * 0.5, self.bounds.size.height);
-//        JCImageResource* imageResource = [[JCResourcesManager sharedManager] getImageResourceAt:0];
-//        
-//        // test draw line
-//        CGContextSetLineWidth(context, 2);
-//        CGContextSetRGBStrokeColor(context, 1, 0, 0, 1);
-//        CGContextMoveToPoint(context, origin.x, origin.y);
-//        CGContextAddLineToPoint(context, origin.x - 200, origin.y - 200);
-//        CGContextStrokePath(context);
-    
-//        origin.x -= 64;
-//        origin.y -= 128;
-//        
-//        for (int i = 0; i < 10; ++i)
-//        {
-//            for (int j = 0; j < 10; ++j)
-//            {
-//                NSPoint drawAtPoint = [self isoWorldToScreen:i * 60 y:0 z:j * 60];
-//                drawAtPoint.x = origin.x - drawAtPoint.x;
-//                drawAtPoint.y = origin.y - drawAtPoint.y;
-//                
-//                [imageResource.image drawAtPoint:drawAtPoint fromRect:NSMakeRect(0, imageResource.image.size.height - 128, 128, 128) operation:NSCompositeSourceOver fraction:1];
-//            }
-//        }
-//        
-//        for (int i = 5; i < 8; ++i)
-//        {
-//            for (int j = 5; j < 8; ++j)
-//            {
-//                NSPoint drawAtPoint = [self isoWorldToScreen:i * 60 y:2 * 60 z:j * 60];
-//                drawAtPoint.x = origin.x - drawAtPoint.x;
-//                drawAtPoint.y = origin.y - drawAtPoint.y;
-//                
-//                [imageResource.image drawAtPoint:drawAtPoint fromRect:NSMakeRect(0, imageResource.image.size.height - 128, 128, 128) operation:NSCompositeSourceOver fraction:1];
-//            }
-//        }
-//    }
+    // Draw focus
+    if (self.strokeType == STROKE_TYPE_PEN)
+    {
+        IsometricModel* isometricModel = [JCDataManager sharedManager].isometricModel;
+        if (isometricModel != nil)
+        {
+            // setup focus stroke
+            CGContextSetLineWidth(context, 2);
+            CGContextSetRGBStrokeColor(context, 0, 2, 0, 1);
+            
+            int floor = self.floorVisibleIndex == -1 ? 0 : self.floorVisibleIndex;
+            int cellSize = isometricModel->getCellSize();
+            
+            IsometricAlgorithm_Point isoP0 = IsometricAlgorithm::isoWorldToScreen(self.focusCol * cellSize, -floor * cellSize, self.focusRow * cellSize);
+            CGContextMoveToPoint(context, origin.x + isoP0.x, origin.y - isoP0.y);
+            
+            IsometricAlgorithm_Point isoP1 = IsometricAlgorithm::isoWorldToScreen((self.focusCol + 1) * cellSize, -floor * cellSize, self.focusRow * cellSize);
+            CGContextAddLineToPoint(context, origin.x + isoP1.x, origin.y - isoP1.y);
+            
+            IsometricAlgorithm_Point isoP2 = IsometricAlgorithm::isoWorldToScreen((self.focusCol + 1) * cellSize, -floor * cellSize, (self.focusRow + 1) * cellSize);
+            CGContextAddLineToPoint(context, origin.x + isoP2.x, origin.y - isoP2.y);
+            
+            IsometricAlgorithm_Point isoP3 = IsometricAlgorithm::isoWorldToScreen(self.focusCol * cellSize, -floor * cellSize, (self.focusRow + 1) * cellSize);
+            CGContextAddLineToPoint(context, origin.x + isoP3.x, origin.y - isoP3.y);
+            
+            CGContextAddLineToPoint(context, origin.x + isoP0.x, origin.y - isoP0.y);
+            
+            CGContextStrokePath(context);
+        }
+    }
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
 {
-    self.originCrossOffsetX += theEvent.deltaX;
-    self.originCrossOffsetY -= theEvent.deltaY;
-    [self setNeedsDisplay:YES];
+    // Store dragDelta
+    if (self.strokeType == STROKE_TYPE_HAND)
+    {
+        self.originCrossOffsetX += theEvent.deltaX;
+        self.originCrossOffsetY -= theEvent.deltaY;
+        [self setNeedsDisplay:YES];
+    }
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent
+{
+    // Store focus
+    IsometricModel* isometricModel = [JCDataManager sharedManager].isometricModel;
+    if (isometricModel != nil)
+    {
+        int floor = self.floorVisibleIndex == -1 ? 0 : self.floorVisibleIndex;
+        NSPoint touchPoint = [self convertPoint:theEvent.locationInWindow fromView:self.window.contentView];
+        NSPoint point = NSMakePoint(touchPoint.x - self.origin.x, -(self.origin.y - touchPoint.y));
+        IsometricAlgorithm_Point isoPoint = IsometricAlgorithm::isoScreenToWorld(point.x, point.y - IsometricAlgorithm::isoScreenFloorHeight(floor * isometricModel->getCellSize()));
+        int row = -isoPoint.x / isometricModel->getCellSize();
+        int col = -isoPoint.y / isometricModel->getCellSize();
+        if (row >= 0 && row < isometricModel->getRows() && col >= 0 && col < isometricModel->getCols())
+        {
+            self.focusRow = row;
+            self.focusCol = col;
+            [self setNeedsDisplay:YES];
+        }
+    }
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    // Store tile data
+    if (self.strokeType == STROKE_TYPE_PEN)
+    {
+        IsometricModel* isometricModel = [JCDataManager sharedManager].isometricModel;
+        if (isometricModel != nil)
+        {
+            NSString* imageResourceName = [JCDataManager sharedManager].strokeImageResource.imageResourceName;
+        }
+    }
 }
 
 - (void)resizeWithOldSuperviewSize:(NSSize)oldSize
@@ -212,14 +257,6 @@ using namespace jcgame;
     myBounds.origin.x = 200;
     [self setFrame:myBounds];
     [self setNeedsDisplay:YES];
-}
-
-- (NSPoint)isoWorldToScreen:(int)x y:(int)y z:(int)z
-{
-    NSPoint point;
-    point.x = x - z;
-    point.y = -y * 1.2247 + (x + z) * 0.5;
-    return point;
 }
 
 - (void)newSceneNotification:(NSNotification*)notification
