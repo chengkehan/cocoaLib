@@ -19,22 +19,22 @@ int main(int argc, const char * argv[])
     
     TinyMemory tinyMemeory;
     
-    bool initResult = tinyMemeory.init(16);
+    tinyMemeory.init(16);
     tinyMemeory.debugPrint();
     
-//    void* m0 = tinyMemeory.allocateMemory(2);
-//    tinyMemeory.debugPrint();
-//    void* m1 = tinyMemeory.allocateMemory(2);
-//    tinyMemeory.debugPrint();
-//    void* m2 = tinyMemeory.allocateMemory(2);
-//    tinyMemeory.debugPrint();
-//    void* m3 = tinyMemeory.allocateMemory(2);
-//    tinyMemeory.freeMemory(m0);
-//    tinyMemeory.freeMemory(m1);
-//    tinyMemeory.freeMemory(m2);
-//    m0 = tinyMemeory.allocateMemory(2);
-//    tinyMemeory.debugPrint();
-//    tinyMemeory.freeMemory(m0);
+    void* m0 = tinyMemeory.allocateMemory(2);
+    tinyMemeory.debugPrint();
+    void* m1 = tinyMemeory.allocateMemory(2);
+    tinyMemeory.debugPrint();
+    void* m2 = tinyMemeory.allocateMemory(2);
+    tinyMemeory.debugPrint();
+    void* m3 = tinyMemeory.allocateMemory(2);
+    tinyMemeory.freeMemory(m0);
+    tinyMemeory.freeMemory(m1);
+    tinyMemeory.freeMemory(m2);
+    tinyMemeory.freeMemory(m3);
+    tinyMemeory.cleanup();
+    tinyMemeory.debugPrint();
     
     return 0;
 }

@@ -16,10 +16,10 @@ using namespace jcgame;
 
 /* PRIVATE STATIC */
 const unsigned int TinyMemory::BYTES_LEVELS[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
-const unsigned int TinyMemory::NUM_LEVELS = 10;
+const unsigned int TinyMemory::NUM_LEVELS = 10; // Keep pace with hard code in the header
 const unsigned char TinyMemory::LEGAL_ALIGNMENTS[] = {2, 4, 8, 16, 32, 64};
 const unsigned int TinyMemory::NUM_LEGAL_ALIGNMENT = 6;
-const unsigned int TinyMemory::NUM_CELLS_PER_BLOCK = 3;
+const unsigned int TinyMemory::NUM_CELLS_PER_BLOCK = 100; // Keep pace with hard code in the header
 
 /* PUBLIC */
 
@@ -31,8 +31,7 @@ TinyMemory::TinyMemory() :
 
 TinyMemory::~TinyMemory()
 {
-    // The object was not beed initialized
-    if (this->alignment == 0)
+    if (!this->isInitialized())
     {
         return;
     }
@@ -60,7 +59,7 @@ bool TinyMemory::init(unsigned char alignment)
         return false;
     }
     // Has been initialized
-    if (this->alignment != 0)
+    if (this->isInitialized())
     {
         return false;
     }
@@ -77,7 +76,7 @@ bool TinyMemory::init(unsigned char alignment)
 
 void* TinyMemory::allocateMemory(unsigned int numBytes)
 {
-    if (this->alignment == 0)
+    if (!this->isInitialized())
     {
         return nullptr;
     }
@@ -103,6 +102,8 @@ void* TinyMemory::allocateMemory(unsigned int numBytes)
     --block->numFreeCells;
     unsigned int freeIndex = block->freeList[block->numFreeCells];
     block->freeList[block->numFreeCells] = UINT32_MAX;
+    assert(isFreeCell(block, freeIndex));
+    setFreeCell(block, freeIndex, false);
     
     char* allocPtr = &block->data[(TinyMemory::BYTES_LEVELS[indexOfLevel] + this->alignment) * freeIndex];
     char* alignedPtr = this->alignMemory(allocPtr);
@@ -112,7 +113,7 @@ void* TinyMemory::allocateMemory(unsigned int numBytes)
 
 bool TinyMemory::freeMemory(void *ptr)
 {
-    if (this->alignment == 0)
+    if (!this->isInitialized())
     {
         return false;
     }
@@ -139,17 +140,15 @@ bool TinyMemory::freeMemory(void *ptr)
                     {
                         return false;
                     }
+                    
                     unsigned long index = offset / realCellSize;
-                    // Check if the index is in the freeList
-                    for (int j = 0; j < block->numFreeCells; ++j)
+                    if (this->isFreeCell(block, (unsigned int)index))
                     {
-                        if (block->freeList[j] == index)
-                        {
-                            return false;
-                        }
+                        return false;
                     }
-                    // Append the index to freeList
+                    
                     block->freeList[block->numFreeCells] = (unsigned int)index;
+                    setFreeCell(block, (unsigned int)index, true);
                     ++block->numFreeCells;
                     return true;
                 }
@@ -161,9 +160,36 @@ bool TinyMemory::freeMemory(void *ptr)
     return false;
 }
 
+void TinyMemory::cleanup()
+{
+    if (!this->isInitialized())
+    {
+        return;
+    }
+    
+    for (int i = 0; i < TinyMemory::NUM_LEVELS; ++i)
+    {
+        TinyMemory_Block* block = &this->blocks[i];
+        while (block != nullptr)
+        {
+            if (block->data != nullptr)
+            {
+                if (block->numFreeCells == TinyMemory::NUM_CELLS_PER_BLOCK)
+                {
+                    TinyMemory_Block* nextBlock = block->nextBlock;
+                    free(block->data);
+                    memset(block, 0, sizeof(TinyMemory_Block));
+                    block->nextBlock = nextBlock;
+                }
+            }
+            block = block->nextBlock;
+        }
+    }
+}
+
 void TinyMemory::debugPrint()
 {
-    if (this->alignment == 0)
+    if (!this->isInitialized())
     {
         printf("TinyMemory was not beed initialized\n");
     }
@@ -273,6 +299,7 @@ bool TinyMemory::initBlock(TinyMemory_Block *block, unsigned int indexOfLevel)
     for (int i = 0; i < TinyMemory::NUM_CELLS_PER_BLOCK; ++i)
     {
         block->freeList[i] = i;
+        block->states[i] = false;
     }
     
     return true;
@@ -302,6 +329,29 @@ bool TinyMemory::isLegalAlignment(unsigned char alignment)
         }
     }
     return false;
+}
+
+bool TinyMemory::isInitialized()
+{
+    return this->alignment != 0;
+}
+
+bool TinyMemory::isFreeCell(TinyMemory_Block *block, unsigned int index)
+{
+    assert(block != nullptr);
+    assert(index < TinyMemory::NUM_CELLS_PER_BLOCK);
+    assert(block->data != nullptr);
+    
+    return !block->states[index];
+}
+
+void TinyMemory::setFreeCell(TinyMemory_Block *block, unsigned int index, bool isFree)
+{
+    assert(block != nullptr);
+    assert(index < TinyMemory::NUM_CELLS_PER_BLOCK);
+    assert(block->data != nullptr);
+    
+    block->states[index] = !isFree;
 }
 
 void TinyMemory::debugPrintBlock(TinyMemory_Block *block, unsigned int depth, unsigned int indexOfLevel)

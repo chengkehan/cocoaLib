@@ -24,7 +24,9 @@ namespace jcgame
         // The number of unused cells
         unsigned int numFreeCells;
         // All indices of unused cells
-        unsigned int freeList[3]; // TinyMemory::NUM_CELLS_PER_BLOCK
+        unsigned int freeList[100]; // TinyMemory::NUM_CELLS_PER_BLOCK(hard code here)
+        // The status of cell, in using(true) or free(false).
+        bool states[100]; // TinyMemory::NUM_CELLS_PER_BLOCK(hard code here)
     }
     TinyMemory_Block;
     
@@ -42,6 +44,8 @@ namespace jcgame
         void* allocateMemory(unsigned int numBytes);
         // Free memory
         bool freeMemory(void* ptr);
+        // Destroy all unused TinyMemory_Blocks
+        void cleanup();
         // Print the inner struct of TinyMemory for debug
         void debugPrint();
         
@@ -71,12 +75,18 @@ namespace jcgame
         char* alignMemory(char* memory);
         // Whether is legal memory address alignment
         bool isLegalAlignment(unsigned char alignment);
+        // Whether the object has been initialized
+        bool isInitialized();
+        // Whether the cell is in using or free at the index
+        bool isFreeCell(TinyMemory_Block* block, unsigned int index);
+        // Set the cell is in using or free at the index
+        void setFreeCell(TinyMemory_Block* block, unsigned index, bool isFree);
         // Print the inner struct of TinyMemory_Block for debug
         void debugPrintBlock(TinyMemory_Block* block, unsigned int depth, unsigned int indexOfLevel);
         // Print tabs with depth
         void debugPrintTabs(unsigned int depth);
         
-        TinyMemory_Block blocks[10]; // TinyMemory::NUM_LEVELS
+        TinyMemory_Block blocks[10]; // TinyMemory::NUM_LEVELS(hard code here)
         // The alignment of memory address that allocate from this manager
         unsigned char alignment;
     };
