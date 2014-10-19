@@ -6,20 +6,20 @@
 //  Copyright (c) 2014年 JimCheng. All rights reserved.
 //
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
 #include "TinyMemory.h"
 
 using namespace jcgame;
 
-/* PUBLIC STATIC */
-
+/* PRIVATE STATIC */
 const unsigned int TinyMemory::BYTES_LEVELS[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
 const unsigned int TinyMemory::NUM_LEVELS = 10;
-const unsigned char TinyMemory::MIN_ALIGNMENT = 2;
-const unsigned char TinyMemory::MAX_ALIGNMENT = 64;
-
-/* PRIVATE STATIC */
-
-const unsigned int TinyMemory::NUM_CELLS_PER_BLOCK = 1024;
+const unsigned char TinyMemory::LEGAL_ALIGNMENTS[] = {2, 4, 8, 16, 32, 64};
+const unsigned int TinyMemory::NUM_LEGAL_ALIGNMENT = 6;
+const unsigned int TinyMemory::NUM_CELLS_PER_BLOCK = 3;
 
 /* PUBLIC */
 
@@ -31,7 +31,26 @@ TinyMemory::TinyMemory() :
 
 TinyMemory::~TinyMemory()
 {
-    // TODO free all memory, destruct object.
+    // The object was not beed initialized
+    if (this->alignment == 0)
+    {
+        return;
+    }
+    
+    // Free all memory, destruct objects.
+    for (int i = 0; i < TinyMemory::NUM_LEVELS; ++i)
+    {
+        TinyMemory_Block* block = &this->blocks[i];
+        while (block != nullptr)
+        {
+            if (block->data != nullptr)
+            {
+                free(block->data);
+                block->data = nullptr;
+            }
+            block = block->nextBlock;
+        }
+    }
 }
 
 bool TinyMemory::init(unsigned char alignment)
@@ -41,11 +60,11 @@ bool TinyMemory::init(unsigned char alignment)
         return false;
     }
     // Has been initialized
-    if (this->alignment == 0)
+    if (this->alignment != 0)
     {
         return false;
     }
-    if (alignment < TinyMemory::MIN_ALIGNMENT || alignment > TinyMemory::MAX_ALIGNMENT || alignment % 2 != 0)
+    if (!this->isLegalAlignment(alignment))
     {
         return false;
     }
@@ -142,6 +161,24 @@ bool TinyMemory::freeMemory(void *ptr)
     return false;
 }
 
+void TinyMemory::debugPrint()
+{
+    if (this->alignment == 0)
+    {
+        printf("TinyMemory was not beed initialized\n");
+    }
+    else
+    {
+        printf("TinyMemory:(%d)\n", TinyMemory::NUM_CELLS_PER_BLOCK);
+        for (int i = 0; i < TinyMemory::NUM_LEVELS; ++i)
+        {
+            TinyMemory_Block* block = &this->blocks[i];
+            this->debugPrintBlock(block, 1, i);
+        }
+        printf("\n");
+    }
+}
+
 /* PRIVATE */
 
 int TinyMemory::getIndexOfLevel(unsigned int numBytes)
@@ -193,7 +230,7 @@ TinyMemory_Block* TinyMemory::getBlock(unsigned int indexOfLevel)
                     }
                     else
                     {
-                        if (initBlock(nextBlock, indexOfLevel))
+                        if (this->initBlock(nextBlock, indexOfLevel))
                         {
                             block->nextBlock = nextBlock;
                             return nextBlock;
@@ -253,4 +290,51 @@ char* TinyMemory::alignMemory(char *memory)
     *offsetPtr = offset;
     
     return alignedMemory;
+}
+
+bool TinyMemory::isLegalAlignment(unsigned char alignment)
+{
+    for (int i = 0; i < TinyMemory::NUM_LEGAL_ALIGNMENT; ++i)
+    {
+        if (TinyMemory::LEGAL_ALIGNMENTS[i] == alignment)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void TinyMemory::debugPrintBlock(TinyMemory_Block *block, unsigned int depth, unsigned int indexOfLevel)
+{
+    assert(block != nullptr);
+    assert(indexOfLevel < TinyMemory::NUM_LEVELS);
+    
+    this->debugPrintTabs(depth);
+    printf("Block %d:", TinyMemory::BYTES_LEVELS[indexOfLevel]);
+    if (block->data == nullptr)
+    {
+        printf("Not initialized");
+    }
+    else
+    {
+        printf("FreeList:");
+        for (int i = 0; i < block->numFreeCells; ++i)
+        {
+            printf("%d,", block->freeList[i]);
+        }
+    }
+    printf("\n");
+    
+    if (block->nextBlock)
+    {
+        this->debugPrintBlock(block->nextBlock, depth + 1, indexOfLevel);
+    }
+}
+
+void TinyMemory::debugPrintTabs(unsigned int depth)
+{
+    for (int i = 0; i < depth; ++i)
+    {
+        printf("    ");
+    }
 }

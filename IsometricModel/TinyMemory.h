@@ -24,23 +24,13 @@ namespace jcgame
         // The number of unused cells
         unsigned int numFreeCells;
         // All indices of unused cells
-        unsigned int freeList[1024]; // TinyMemory::NUM_CELLS_PER_BLOCK
+        unsigned int freeList[3]; // TinyMemory::NUM_CELLS_PER_BLOCK
     }
     TinyMemory_Block;
     
     // The manager for all TinyMemory_Blocks
     class TinyMemory
     {
-    public:
-        // Define the increment of each block's cell
-        static const unsigned int BYTES_LEVELS[];
-        // The size of BYTES_LEVELS
-        static const unsigned int NUM_LEVELS;
-        // Minimal memory alignment
-        static const unsigned char MIN_ALIGNMENT;
-        // Maximal memory aligment
-        static const unsigned char MAX_ALIGNMENT;
-        
     public:
         TinyMemory();
         ~TinyMemory();
@@ -52,8 +42,18 @@ namespace jcgame
         void* allocateMemory(unsigned int numBytes);
         // Free memory
         bool freeMemory(void* ptr);
+        // Print the inner struct of TinyMemory for debug
+        void debugPrint();
         
     private:
+        // Define the increment of each block's cell
+        static const unsigned int BYTES_LEVELS[];
+        // The size of BYTES_LEVELS
+        static const unsigned int NUM_LEVELS;
+        // The legal memory address alignment
+        static const unsigned char LEGAL_ALIGNMENTS[];
+        // The size of LEGAL_ALIGNMENT
+        static const unsigned int NUM_LEGAL_ALIGNMENT;
         // The number of cells in one memory block
         static const unsigned int NUM_CELLS_PER_BLOCK;
         
@@ -69,6 +69,12 @@ namespace jcgame
         bool initBlock(TinyMemory_Block* block, unsigned int indexOfLevel);
         // Get a aligned memory address
         char* alignMemory(char* memory);
+        // Whether is legal memory address alignment
+        bool isLegalAlignment(unsigned char alignment);
+        // Print the inner struct of TinyMemory_Block for debug
+        void debugPrintBlock(TinyMemory_Block* block, unsigned int depth, unsigned int indexOfLevel);
+        // Print tabs with depth
+        void debugPrintTabs(unsigned int depth);
         
         TinyMemory_Block blocks[10]; // TinyMemory::NUM_LEVELS
         // The alignment of memory address that allocate from this manager
