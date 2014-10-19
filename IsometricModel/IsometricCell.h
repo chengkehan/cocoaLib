@@ -30,8 +30,23 @@ namespace jcgame
         int getRow() const;
         int getCol() const;
         
+        void setFloorHeight(int floorHeight);
+        int getFloorHeight() const;
+        
+        void setStartHeight(int startHeight);
+        int getStartHeight() const;
+        
+        void setEndHeight(int endHeight);
+        int getEndHeight() const;
+        
         void setData(void*);
         void* getData() const;
+        
+        void setAtlasName(const char* atlasName);
+        const char* getAtlasName() const;
+        
+        void setSpriteName(const char* spriteName);
+        const char* getSpriteName() const;
         
     private:
         IsometricCell(const IsometricCell&);
@@ -43,7 +58,12 @@ namespace jcgame
         int floor;
         int row;
         int col;
+        int floorHeight;
+        int startHeight;
+        int endHeight;
         void* data;
+        char* atlasName;
+        char* spriteName;
     };
 }
 
