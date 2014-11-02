@@ -74,6 +74,11 @@ bool TinyMemory::init(unsigned char alignment)
     return true;
 }
 
+bool TinyMemory::isInitialized()
+{
+    return this->alignment != 0;
+}
+
 void* TinyMemory::allocateMemory(unsigned int numBytes)
 {
     if (!this->isInitialized())
@@ -109,6 +114,22 @@ void* TinyMemory::allocateMemory(unsigned int numBytes)
     char* alignedPtr = this->alignMemory(allocPtr);
 
     return alignedPtr;
+}
+
+void* TinyMemory::allocateZeroMemory(unsigned int numBytes)
+{
+    void* ptr = this->allocateMemory(numBytes);
+    if (ptr != nullptr)
+    {
+        char* offsetPtr = (char*)ptr - 1;
+        unsigned char offset = *offsetPtr;
+        char* rawPtr = (char*)ptr - offset;
+        int indexOfLevel = this->getIndexOfLevel(numBytes);
+        assert(indexOfLevel != -1);
+        memset(rawPtr, 0, TinyMemory::BYTES_LEVELS[indexOfLevel] + this->alignment);
+        *offsetPtr = offset;
+    }
+    return ptr;
 }
 
 bool TinyMemory::freeMemory(void *ptr)
@@ -329,11 +350,6 @@ bool TinyMemory::isLegalAlignment(unsigned char alignment)
         }
     }
     return false;
-}
-
-bool TinyMemory::isInitialized()
-{
-    return this->alignment != 0;
 }
 
 bool TinyMemory::isFreeCell(TinyMemory_Block *block, unsigned int index)

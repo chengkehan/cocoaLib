@@ -39,9 +39,12 @@ namespace jcgame
         
         // Initialize with memory address alignment
         bool init(unsigned char alignment);
-        
+        // Whether the object has been initialized
+        bool isInitialized();
         // Allocate memory with how many bytes you want
         void* allocateMemory(unsigned int numBytes);
+        // Allocate memory and all byte will be set with zero
+        void* allocateZeroMemory(unsigned int numBytes);
         // Free memory
         bool freeMemory(void* ptr);
         // Destroy all unused TinyMemory_Blocks
@@ -75,8 +78,6 @@ namespace jcgame
         char* alignMemory(char* memory);
         // Whether is legal memory address alignment
         bool isLegalAlignment(unsigned char alignment);
-        // Whether the object has been initialized
-        bool isInitialized();
         // Whether the cell is in using or free at the index
         bool isFreeCell(TinyMemory_Block* block, unsigned int index);
         // Set the cell is in using or free at the index

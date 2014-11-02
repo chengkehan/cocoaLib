@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320F5E9F19F54D3F00FDDA2D /* TinyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320F5E9D19F54D3F00FDDA2D /* TinyString.cpp */; };
+		320F5EA019F54D3F00FDDA2D /* TinyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 320F5E9D19F54D3F00FDDA2D /* TinyString.cpp */; };
+		320F5EA119F54D3F00FDDA2D /* TinyString.h in Headers */ = {isa = PBXBuildFile; fileRef = 320F5E9E19F54D3F00FDDA2D /* TinyString.h */; };
+		320F5EA219F54D3F00FDDA2D /* TinyString.h in Headers */ = {isa = PBXBuildFile; fileRef = 320F5E9E19F54D3F00FDDA2D /* TinyString.h */; };
 		3247B09419B4E1060072B2C4 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3247B09319B4E1060072B2C4 /* PrefixHeader.pch */; };
 		3247B09519B4E1060072B2C4 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3247B09319B4E1060072B2C4 /* PrefixHeader.pch */; };
 		3266470A19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3266470819CE97D80000347F /* IsometricAlgorithm.cpp */; };
@@ -48,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320F5E9D19F54D3F00FDDA2D /* TinyString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TinyString.cpp; sourceTree = "<group>"; };
+		320F5E9E19F54D3F00FDDA2D /* TinyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyString.h; sourceTree = "<group>"; };
 		3247B09319B4E1060072B2C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3266470819CE97D80000347F /* IsometricAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IsometricAlgorithm.cpp; sourceTree = "<group>"; };
 		3266470919CE97D80000347F /* IsometricAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsometricAlgorithm.h; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 				3266470919CE97D80000347F /* IsometricAlgorithm.h */,
 				32D9876A199900C600522AE3 /* IsometricModel.h */,
 				32D9876D1999048C00522AE3 /* IsometricCell.cpp */,
+				320F5E9D19F54D3F00FDDA2D /* TinyString.cpp */,
+				320F5E9E19F54D3F00FDDA2D /* TinyString.h */,
 				32AAA75219E261E600B8550A /* TinyMemory.cpp */,
 				32AAA75319E261E600B8550A /* TinyMemory.h */,
 				32D9876E1999048C00522AE3 /* IsometricCell.h */,
@@ -132,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3247B09519B4E1060072B2C4 /* PrefixHeader.pch in Headers */,
+				320F5EA219F54D3F00FDDA2D /* TinyString.h in Headers */,
 				32A08DE219B1786900EEA4B0 /* IsometricCellBevelDirection.h in Headers */,
 				32B20D4819B76A5200A97AC1 /* IsometricPairValue.h in Headers */,
 				32A08DDD19B1784E00EEA4B0 /* tinyxml2.h in Headers */,
@@ -150,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3247B09419B4E1060072B2C4 /* PrefixHeader.pch in Headers */,
+				320F5EA119F54D3F00FDDA2D /* TinyString.h in Headers */,
 				32D987701999048C00522AE3 /* IsometricCell.h in Headers */,
 				32B20D4719B76A5200A97AC1 /* IsometricPairValue.h in Headers */,
 				32A08DD019B1743800EEA4B0 /* tinyxml2.h in Headers */,
@@ -270,6 +280,7 @@
 				32AAA75519E261E600B8550A /* TinyMemory.cpp in Sources */,
 				32B20D4619B76A5200A97AC1 /* IsometricPairValue.cpp in Sources */,
 				3266470B19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */,
+				320F5EA019F54D3F00FDDA2D /* TinyString.cpp in Sources */,
 				32A08DDC19B1784500EEA4B0 /* IsometricCell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +296,7 @@
 				32AAA75419E261E600B8550A /* TinyMemory.cpp in Sources */,
 				32B20D4519B76A5200A97AC1 /* IsometricPairValue.cpp in Sources */,
 				3266470A19CE97D80000347F /* IsometricAlgorithm.cpp in Sources */,
+				320F5E9F19F54D3F00FDDA2D /* TinyString.cpp in Sources */,
 				32AAE25419AF804000AD58AB /* IsometricTileConfig.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
