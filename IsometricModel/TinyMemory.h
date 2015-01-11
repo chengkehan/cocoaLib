@@ -39,6 +39,8 @@ namespace jcgame
         
         // Initialize with memory address alignment
         bool init(unsigned char alignment);
+        // Initialize with memory address alignment and some reserved memory blocks 
+        bool init(unsigned char alignment, unsigned int reservedBlocks);
         // Whether the object has been initialized
         bool isInitialized();
         // Allocate memory with how many bytes you want
@@ -72,6 +74,8 @@ namespace jcgame
         int getIndexOfLevel(unsigned int numBytes);
         // Get memory block with index of BYTES_LEVELS
         TinyMemory_Block* getBlock(unsigned int indexOfLevel);
+        // New memory block
+        TinyMemory_Block* newBlock(TinyMemory_Block* prevBlock, unsigned int indexOfLevel);
         // Initialize memory block
         bool initBlock(TinyMemory_Block* block, unsigned int indexOfLevel);
         // Get a aligned memory address

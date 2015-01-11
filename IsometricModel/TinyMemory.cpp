@@ -58,7 +58,6 @@ bool TinyMemory::init(unsigned char alignment)
     {
         return false;
     }
-    // Has been initialized
     if (this->isInitialized())
     {
         return false;
@@ -72,6 +71,33 @@ bool TinyMemory::init(unsigned char alignment)
     memset(this->blocks, 0, sizeof(TinyMemory_Block) * TinyMemory::NUM_LEVELS);
     
     return true;
+}
+
+bool TinyMemory::init(unsigned char alignment, unsigned int reservedBlocks)
+{
+    if (this->init(alignment))
+    {
+        if (reservedBlocks > 0)
+        {
+            for (int indexOfLevel = 0; indexOfLevel < TinyMemory::NUM_LEVELS; ++indexOfLevel)
+            {
+                TinyMemory_Block* block = nullptr;
+                for (int reservedBlockIndex; reservedBlockIndex < reservedBlocks; ++reservedBlockIndex)
+                {
+                    block = this->newBlock(block, indexOfLevel);
+                    if (block == nullptr)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 bool TinyMemory::isInitialized()
@@ -270,24 +296,7 @@ TinyMemory_Block* TinyMemory::getBlock(unsigned int indexOfLevel)
             {
                 if (block->nextBlock == nullptr)
                 {
-                    TinyMemory_Block* nextBlock = (TinyMemory_Block*)malloc(sizeof(TinyMemory_Block));
-                    if(nextBlock == nullptr)
-                    {
-                        return nullptr;
-                    }
-                    else
-                    {
-                        if (this->initBlock(nextBlock, indexOfLevel))
-                        {
-                            block->nextBlock = nextBlock;
-                            return nextBlock;
-                        }
-                        else
-                        {
-                            free(nextBlock);
-                            return nullptr;
-                        }
-                    }
+                    return this->newBlock(block, indexOfLevel);
                 }
                 else
                 {
@@ -296,6 +305,38 @@ TinyMemory_Block* TinyMemory::getBlock(unsigned int indexOfLevel)
             }
         }
         return nullptr;
+    }
+}
+
+TinyMemory_Block* TinyMemory::newBlock(TinyMemory_Block *prevBlock, unsigned int indexOfLevel)
+{
+    assert(indexOfLevel < TinyMemory::NUM_LEVELS);
+    assert(prevBlock == nullptr || prevBlock->nextBlock == nullptr);
+    
+    if (prevBlock == nullptr)
+    {
+        return this->getBlock(indexOfLevel);
+    }
+    else
+    {
+        TinyMemory_Block* nextBlock = (TinyMemory_Block*)malloc(sizeof(TinyMemory_Block));
+        if(nextBlock == nullptr)
+        {
+            return nullptr;
+        }
+        else
+        {
+            if (this->initBlock(nextBlock, indexOfLevel))
+            {
+                prevBlock->nextBlock = nextBlock;
+                return nextBlock;
+            }
+            else
+            {
+                free(nextBlock);
+                return nullptr;
+            }
+        }
     }
 }
 
