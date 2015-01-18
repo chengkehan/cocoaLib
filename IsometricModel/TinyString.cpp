@@ -76,7 +76,7 @@ const TinyString& TinyString::operator=(const TinyString& str)
         {
             return *this;
         }
-        ++(*this->handle->refCount);
+        ++this->handle->refCount;
         return *this;
     }
 }
@@ -95,15 +95,13 @@ const TinyString& TinyString::operator=(const char* str)
     }
     
     this->releaseHandle();
-    this->initHandle(true);
+    this->initHandle();
+    assert(this->handle != nullptr);
     
     size_t strLength = strlen(str);
     if (strLength == 0)
     {
-        this->handle->str = nullptr;
-        this->handle->subStrStartIndex = 0;
-        this->handle->subStrLength = 0;
-        ++(*this->handle->refCount);
+        ++this->handle->refCount;
         return *this;
     }
     else
@@ -114,12 +112,14 @@ const TinyString& TinyString::operator=(const char* str)
         {
             return *this;
         }
+        this->initSubString();
+        assert(this->handle->subString != nullptr);
         this->handle->str = newStr;
         memcpy(this->handle->str, str, strLength);
         this->handle->str[strLength] = '\0';
-        this->handle->subStrStartIndex = 0;
-        this->handle->subStrLength = (unsigned int)strLength;
-        ++(*this->handle->refCount);
+        this->handle->subString->startIndex = 0;
+        this->handle->subString->length = (unsigned int)strLength;
+        ++this->handle->refCount;
         return *this;
     }
 }
@@ -156,8 +156,8 @@ bool TinyString::operator==(const TinyString &str) const
     else
     {
         return this->stringCompare(str0, str1,
-                                   this->handle->subStrStartIndex, this->handle->subStrLength,
-                                   str.handle->subStrStartIndex, str.handle->subStrLength);
+                                   this->handle->subString->startIndex, this->handle->subString->length,
+                                   str.handle->subString->startIndex, str.handle->subString->length);
     }
 }
 
@@ -183,7 +183,7 @@ bool TinyString::operator==(const char *str) const
     else
     {
         return this->stringCompare(str0, str1,
-                                   this->handle->subStrStartIndex, this->handle->subStrLength,
+                                   this->handle->subString->startIndex, this->handle->subString->length,
                                    0, (unsigned int)strLength);
     }
 }
@@ -210,7 +210,7 @@ unsigned int TinyString::length() const
         return 0;
     }
     
-    return this->handle->subStrLength;
+    return this->handle->subString->length;
 }
 
 bool TinyString::c_str(char* o_buffer, unsigned int* io_bufferLength) const
@@ -229,9 +229,9 @@ bool TinyString::c_str(char* o_buffer, unsigned int* io_bufferLength) const
         else
         {
             memset(o_buffer, '\0', *io_bufferLength);
-            if (this->handle != nullptr && this->handle->str != nullptr)
+            if (!this->isNullOrEmpty())
             {
-                memcpy(o_buffer, this->handle->str, this->length() + 1);
+                memcpy(o_buffer, this->handle->str + this->handle->subString->startIndex, this->length());
             }
             return true;
         }
@@ -267,55 +267,59 @@ TinyString::TinyString(const TinyString& str, unsigned int subStrStartIndex, uns
         *this = TinyString::EMPTY_STRING;
         return;
     }
-    if (subStrStartIndex >= str.handle->subStrStartIndex + str.handle->subStrLength)
+    if (subStrStartIndex >= str.handle->subString->startIndex + str.handle->subString->length)
     {
         *this = TinyString::EMPTY_STRING;
         return;
     }
-    if (subStrStartIndex + subStrLength >= str.handle->subStrStartIndex + str.handle->subStrLength)
+    if (subStrStartIndex + subStrLength >= str.handle->subString->startIndex + str.handle->subString->length)
     {
-        subStrLength = str.handle->subStrStartIndex + str.handle->subStrLength - subStrStartIndex;
+        subStrLength = str.handle->subString->startIndex + str.handle->subString->length - subStrStartIndex;
     }
     
-    initHandle(false);
-    this->handle->refCount = str.handle->refCount;
-    ++(*this->handle->refCount);
-    this->handle->str = str.handle->str;
-    this->handle->subStrStartIndex = subStrStartIndex;
-    this->handle->subStrLength = subStrLength;
+    this->handle = str.handle;
+    initSubString();
+    assert(this->handle->subString != nullptr);
+    ++(this->handle->refCount);
+    this->handle->subString->startIndex = subStrStartIndex;
+    this->handle->subString->length = subStrLength;
 }
 
-bool TinyString::initHandle(bool initRefCount)
+bool TinyString::initHandle()
 {
-    if (this->handle != nullptr)
-    {
-        return true;
-    }
+    assert(this->handle == nullptr);
     
     TinyString_Handle* handle = (TinyString_Handle*)TinyString::tinyMemory.allocateMemory(sizeof(TinyString_Handle));
     // Allocate memory fail
     if (handle == nullptr)
     {
+        this->handle = nullptr;
         return false;
     }
     this->handle = handle;
     this->handle->str = nullptr;
-    if (initRefCount)
+    this->handle->refCount = 0;
+    this->handle->subString = nullptr;
+    
+    return true;
+}
+
+bool TinyString::initSubString()
+{
+    assert(this->handle != nullptr);
+    assert(this->handle->subString == nullptr);
+    
+    TinyString_SubString* subString = (TinyString_SubString*)TinyString::tinyMemory.allocateMemory(sizeof(TinyString_SubString));
+    // Allocate memory fail
+    if (subString == nullptr)
     {
-        unsigned int* refCount = (unsigned int*)TinyString::tinyMemory.allocateMemory(sizeof(unsigned int));
-        // Allocate memory fail
-        if (refCount == nullptr)
-        {
-            return false;
-        }
-        this->handle->refCount = refCount;
+        this->handle->subString = nullptr;
+        return false;
     }
-    else
-    {
-        this->handle->refCount = nullptr;
-    }
-    this->handle->subStrStartIndex = 0;
-    this->handle->subStrLength = 0;
+    this->handle->subString = subString;
+    this->handle->subString->startIndex = 0;
+    this->handle->subString->length = 0;
+
     return true;
 }
 
@@ -326,14 +330,16 @@ void TinyString::releaseHandle()
         return;
     }
     
-    assert(*this->handle->refCount > 0);
-    --(*this->handle->refCount);
-    if (*this->handle->refCount == 0)
+    assert(this->handle->refCount > 0);
+    --this->handle->refCount;
+    
+    TinyString::tinyMemory.freeMemory(this->handle->subString);
+    this->handle->subString = nullptr;
+    
+    if (this->handle->refCount == 0)
     {
         TinyString::tinyMemory.freeMemory(this->handle->str);
         this->handle->str = nullptr;
-        TinyString::tinyMemory.freeMemory(this->handle->refCount);
-        this->handle->refCount = nullptr;
         TinyString::tinyMemory.freeMemory(this->handle);
     }
     this->handle = nullptr;

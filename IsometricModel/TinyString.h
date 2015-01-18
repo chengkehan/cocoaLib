@@ -13,19 +13,28 @@ namespace jcgame
 {
     class TinyMemory;
     
+    // Store the sub string's property
+    typedef struct TinyString_SubString
+    {
+        // The sub string start from the index which in the whole string
+        // If current string is not a sub string, this value is 0
+        unsigned int startIndex;
+        // The length of sub stirng
+        // If current string is not a sub stirng, this value is equal to length of the whole string
+        unsigned int length;
+
+    }
+    TinyString_SubString;
+    
     // A handle of TinyString object
     typedef struct TinyString_Handle
     {
         // The pointer of string
         char* str;
         // Reference count
-        unsigned int* refCount;
-        // The sub string start from the index which in the whole string
-        // If current string is not a sub string of str, this value is 0
-        unsigned int subStrStartIndex;
-        // The length of sub stirng
-        // If current string is not a sub stirng of str, this value is equal to length of the whole string
-        unsigned int subStrLength;
+        unsigned int refCount;
+        // Sub stirng's property
+        TinyString_SubString* subString;
     }
     TinyString_Handle;
     
@@ -47,8 +56,14 @@ namespace jcgame
         const TinyString& operator=(const TinyString& str);
         // Assign a char string to this object
         const TinyString& operator=(const char* str);
+        // Compare with another string
         bool operator==(const TinyString& str) const;
+        // Compare with another c style string
         bool operator==(const char* str) const;
+        //
+        TinyString operator+(const TinyString& str);
+        //
+        TinyString operator+(const char* str);
         
         // Whether current tinyString is null
         bool isNull() const;
@@ -82,7 +97,9 @@ namespace jcgame
         TinyString(const TinyString& str, unsigned int subStrStartIndex, unsigned int subStrLength);
         
         // Init TinyString_Handle
-        bool initHandle(bool initRefCount);
+        bool initHandle();
+        // Init TinyString_SubString field of TinyString_Handle
+        bool initSubString();
         
         // Release memory of current handle
         void releaseHandle();
