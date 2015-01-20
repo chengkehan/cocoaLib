@@ -188,6 +188,60 @@ bool TinyString::operator==(const char *str) const
     }
 }
 
+TinyString TinyString::operator+(const TinyString &str)
+{
+    if (str.isNullOrEmpty())
+    {
+        return *this;
+    }
+    return TinyString(this->isNull() ? nullptr : this->isEmpty() ? "" : this->handle->str, str.handle->str,
+                      this->handle->subString->startIndex, this->handle->subString->length,
+                      str.handle->subString->startIndex, str.handle->subString->length);
+}
+
+TinyString TinyString::operator+(const char *str)
+{
+    if (str == nullptr)
+    {
+        return *this;
+    }
+    size_t strLength = strlen(str);
+    if (strLength == 0)
+    {
+        return *this;
+    }
+    return TinyString(this->isNull() ? nullptr : this->isEmpty() ? "" : this->handle->str, str,
+                      this->handle->subString->startIndex, this->handle->subString->length,
+                      0, (unsigned int)strLength);
+}
+
+namespace jcgame
+{
+    TinyString operator+(const TinyString& strLH, const TinyString& strRH)
+    {
+        return TinyString(strLH.isNull() ? nullptr : strLH.isEmpty() ? TinyString::C_EMPTY_STRING : strLH.handle->str,
+                          strRH.isNull() ? nullptr : strRH.isEmpty() ? TinyString::C_EMPTY_STRING : strRH.handle->str,
+                          strLH.isNullOrEmpty() ? 0 : strLH.handle->subString->startIndex, strLH.isNullOrEmpty() ? 0 : strLH.handle->subString->length,
+                          strRH.isNullOrEmpty() ? 0 : strRH.handle->subString->startIndex, strRH.isNullOrEmpty() ? 0 : strRH.handle->subString->length);
+    }
+    
+    TinyString operator+(const TinyString& strLH, const char* strRH)
+    {
+        return TinyString(strLH.isNull() ? nullptr : strLH.isEmpty() ? TinyString::C_EMPTY_STRING : strLH.handle->str,
+                          strRH,
+                          strLH.isNullOrEmpty() ? 0 : strLH.handle->subString->startIndex, strLH.isNullOrEmpty() ? 0 : strLH.handle->subString->length,
+                          0, strRH == nullptr ? 0 : (unsigned int)strlen(strRH));
+    }
+    
+    TinyString operator+(const char* strLH, const TinyString& strRH)
+    {
+        return TinyString(strLH,
+                          strRH.isNull() ? nullptr : strRH.isEmpty() ? TinyString::C_EMPTY_STRING : strRH.handle->str,
+                          0, strLH == nullptr ? 0 : (unsigned int)strlen(strLH),
+                          strRH.isNullOrEmpty() ? 0 : strRH.handle->subString->startIndex, strRH.isNullOrEmpty() ? 0 : strRH.handle->subString->length);
+    }
+}// end of jcgame namespace
+
 bool TinyString::isNull() const
 {
     return this->handle == nullptr;
@@ -250,7 +304,8 @@ const TinyString TinyString::subString(unsigned int startIndex, unsigned int end
 
 /* PRIVATE */
 
-TinyString::TinyString(const TinyString& str, unsigned int subStrStartIndex, unsigned int subStrLength)
+TinyString::TinyString(const TinyString& str, unsigned int subStrStartIndex, unsigned int subStrLength) :
+    handle(nullptr)
 {
     if (str.isNull())
     {
@@ -283,6 +338,68 @@ TinyString::TinyString(const TinyString& str, unsigned int subStrStartIndex, uns
     ++(this->handle->refCount);
     this->handle->subString->startIndex = subStrStartIndex;
     this->handle->subString->length = subStrLength;
+}
+
+TinyString::TinyString(const char* strLH, const char* strRH,
+                       unsigned int subStrStartIndexLH, unsigned int subStrLengthLH,
+                       unsigned int subStrStartIndexRH, unsigned int subStrLengthRH) :
+    handle(nullptr)
+{
+    if (strLH == nullptr && strRH == nullptr)
+    {
+        *this = TinyString::NULL_STRING;
+        return;
+    }
+    
+    size_t lhLength = strLH == nullptr ? 0 : subStrLengthLH;
+    size_t rhLength = strRH == nullptr ? 0 : subStrLengthRH;
+    
+    if (lhLength + rhLength == 0)
+    {
+        *this = TinyString::EMPTY_STRING;
+        return;
+    }
+    
+    this->constructReservedTinyString((unsigned int)lhLength + (unsigned int)rhLength + 1);
+    assert(this->handle != nullptr);
+    if(strLH != nullptr)
+    {
+        memcpy(this->handle->str, strLH + subStrStartIndexLH, subStrLengthLH);
+    }
+    if(strRH != nullptr)
+    {
+        memcpy(this->handle->str + lhLength, strRH + subStrStartIndexRH, subStrLengthRH);
+    }
+}
+
+bool TinyString::constructReservedTinyString(unsigned int reservedChars)
+{
+    if (reservedChars == 0)
+    {
+        *this = TinyString::EMPTY_STRING;
+        return true;
+    }
+    
+    initHandle();
+    assert(this->handle != nullptr);
+    
+    char* reservedStr = (char*)TinyString::tinyMemory.allocateMemory(reservedChars);
+    // Allocate memory fail
+    if (reservedStr == nullptr)
+    {
+        releaseHandle();
+        return false;
+    }
+    memset(reservedStr, '\0', reservedChars);
+    this->handle->str = reservedStr;
+    ++this->handle->refCount;
+    
+    initSubString();
+    assert(this->handle->subString != nullptr);
+    this->handle->subString->startIndex = 0;
+    this->handle->subString->length = reservedChars;
+    
+    return true;
 }
 
 bool TinyString::initHandle()

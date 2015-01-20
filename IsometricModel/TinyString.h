@@ -64,6 +64,12 @@ namespace jcgame
         TinyString operator+(const TinyString& str);
         //
         TinyString operator+(const char* str);
+        //
+        friend TinyString operator+(const TinyString& strLH, const TinyString& strRH);
+        //
+        friend TinyString operator+(const TinyString& strLH, const char* strRH);
+        //
+        friend TinyString operator+(const char* strLH, const TinyString& strRH);
         
         // Whether current tinyString is null
         bool isNull() const;
@@ -95,6 +101,13 @@ namespace jcgame
     private:
         // Construct TinyString with a sub string
         TinyString(const TinyString& str, unsigned int subStrStartIndex, unsigned int subStrLength);
+        // Construct TinyString with two strings
+        TinyString(const char* strLH, const char* strRH,
+                   unsigned int subStrStartIndexLH, unsigned int subStrLengthLH,
+                   unsigned int subStrStartIndexRH, unsigned int subStrLengthRH);
+        
+        // Construct TinyString with spedfied amount of zero characters
+        bool constructReservedTinyString(unsigned int reservedChars);
         
         // Init TinyString_Handle
         bool initHandle();
